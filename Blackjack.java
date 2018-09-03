@@ -1,33 +1,15 @@
+    /* Dan Sajjad */
 
 
-//  instantiate necessary variables
-//  check if playAgain is true using while
-//  check if it is the first draw
-//  if first draw
-//  draw 2 cards
-//  print total
-//  ask user if user wants another card
-//      if yes
-//          generate a random #
-//          add to running total
-//          print total
-//              if running total > 21
-//                  print "Bust"
-//              else if (running total == 21)
-//                  print "You win"
-//                  ask user if they want to restart
-//                      if yes
-//                          set playAgain to y
-//                      else 
-//                          set playAgain to n
-//      else 
-//          ask user if they want to restart
-//              if yes
-//                  set playAgain to y
-//              else
-//                  set playAgain to n 
-// 
-//
+    // instantiate necessary variables
+    // start loop that keeps the game in play
+    // generate 1st & 2nd card randomly
+    // start loop 2 that keeps asking user if user wants to draw another card
+    // until the user looses, wins or says no
+    // the inner loop is now over
+    // Print the necessary messages
+    // ask if user wants to replay
+
     import java.util.Scanner;
     import java.util.Random;
 
@@ -39,78 +21,45 @@
         }
 
         public static void main (String args[]) {
-
-            System.out.println("Game starting");
-
             Scanner input = new Scanner(System.in);
-            
-            char drawAnotherCard = 'y';
+
+            int JACKPOT = 21;
             String PLAY_AGAIN = "Would you like to play again? (y/n): ";
             String DRAW_ANOTHER = "Do you want another card? (y/n): ";
+            char drawAnotherCard;
+            char play = 'y';
+            int playerScore;
+            int card1;
+            int card2;
 
+            while (play == 'y') {
+                drawAnotherCard = 'y';
+                card1 = randGenerator();
+                card2 = randGenerator();
+                playerScore = card1 + card2;
 
-            int card1 = randGenerator();
-            int card2 = randGenerator();
-            int runningTotal = card1 + card2;
-            
-            System.out.println("First cards: " + card1 + ", " + card2);
-            System.out.println("Total: " + runningTotal);
+                System.out.println("First cards: " + card1 + ", " + card2);
+                System.out.println("Total: " + playerScore);
 
-            // Ask if user wants another card? 
-            System.out.println(DRAW_ANOTHER);
-            drawAnotherCard = input.next().charAt(0);
-
-            while (drawAnotherCard == 'y') {
-                // Draw new card
-                card1 = randGenerator(); 
-                runningTotal += card1;
-
-                // Print 
-                System.out.println("Card: " + card1);
-                System.out.println("Total: " + runningTotal);
-
-                if (runningTotal > 21) {
-                    System.out.println("Bust.");
-
-                    System.out.println(PLAY_AGAIN);
-                    drawAnotherCard = input.next().charAt(0);
-
-                    if (drawAnotherCard == 'y') {
-                        runningTotal = 0;
-                        card1 = randGenerator();
-                        card2 = randGenerator();
-                        runningTotal = card1 + card2;
-                        
-                        System.out.println("First cards: " + card1 + ", " + card2);
-                        System.out.println("Total: " + runningTotal);
-
-                        // Ask if user wants another card? 
-                        System.out.println(DRAW_ANOTHER);
-                        drawAnotherCard = input.next().charAt(0);
-                    }
-                } else if (runningTotal == 21) {
-                    System.out.println("You won!");
-
-                    System.out.println(PLAY_AGAIN);
-                    drawAnotherCard = input.next().charAt(0);
-
-                    if (drawAnotherCard == 'y') {
-                        runningTotal = 0;
-                        card1 = randGenerator();
-                        card2 = randGenerator();
-                        runningTotal = card1 + card2;
-                        
-                        System.out.println("First cards: " + card1 + ", " + card2);
-                        System.out.println("Total: " + runningTotal);
-
-                        // Ask if user wants another card? 
-                        System.out.println(DRAW_ANOTHER);
-                        drawAnotherCard = input.next().charAt(0);
-                    }
-                } else {
+                while(playerScore < JACKPOT && drawAnotherCard == 'y') {
+                    // Ask if user wants another card? 
                     System.out.println(DRAW_ANOTHER);
                     drawAnotherCard = input.next().charAt(0);
+                    card1 = randGenerator();
+                    playerScore += card1;
+
+                    System.out.println("Card: " + card1);
+                    System.out.println("Total: " + playerScore);
                 }
-            }             
+
+                if (playerScore == JACKPOT) {
+                    System.out.println("You won!");
+                } else if (playerScore > JACKPOT) {
+                    System.out.println("Bust.");
+                }
+
+                System.out.println(PLAY_AGAIN);
+                play = input.next().charAt(0);
+            }
         }
     }
