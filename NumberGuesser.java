@@ -33,7 +33,7 @@ public class NumberGuesser {
 
 	public static boolean shouldPlayAgain() {
 		Scanner input = new Scanner(System.in);
-		System.out.println(
+		System.out.print(
 			"Great! Do you want to play again? (y/n): "
 		);
 		return (input.next().charAt(0) == 'y');
@@ -43,7 +43,7 @@ public class NumberGuesser {
 
 	public static char getUserResponseToGuess(int guess) {
 			Scanner input = new Scanner(System.in);
-			System.out.println("Is it " + Integer.toString(guess) + "?  (h/l/c):");
+			System.out.print("Is it " + Integer.toString(guess) + "?  (h/l/c): ");
 			return input.next().charAt(0);
 	}	
 
