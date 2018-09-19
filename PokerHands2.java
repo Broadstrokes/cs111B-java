@@ -1,3 +1,65 @@
+/**
+We are ignoring card suits there won’t be any flushes. Your program should be 
+able to recognize the following hand categories, listed from least valuable to most valuable:
+
+
+High Card - There are no matching cards, and the hand is not a straight
+{2, 5, 3, 8, 7}
+
+Pair - Two of the cards are identical
+{2, 5, 3, 5, 7}
+
+Two Pair - Two different pairs
+{2, 5, 3, 5, 3}
+
+Three of a kind - Three matching cards
+{5, 5, 3, 5, 7}
+
+Straight - Card values can be arranged in order
+{3, 4, 5, 6, 7}
+
+Full House - A pair, and a three of a kind
+{5, 7, 5, 7, 7}
+
+Four of a kind - Four matching cards
+{2, 5, 5, 5, 5}
+
+(A note on straights: a hand is a straight regardless of the order. So the values 
+3, 4, 5, 6, 7 represent a straight, but so do the values 7, 4, 5, 6, 3)
+Your program should read in five values and then print out the appropriate hand type.
+If a hand matches more than one description, the program should print out the most 
+valuable hand type.
+
+Here is are three sample runs of the program:
+
+
+Enter five numeric cards, no face cards. Use 2 - 9.
+Card 1: 8 
+Card 2: 7
+Card 3: 8
+Card 4: 2
+Card 5: 7
+Two Pair!
+
+
+Enter five numeric cards, no face cards. Use 2 - 9.
+Card 1: 4 
+Card 2: 5
+Card 3: 6
+Card 4: 8
+Card 5: 7
+Straight!
+
+
+Enter five numeric cards, no face cards. Use 2 - 9.
+Card 1: 9
+Card 2: 2
+Card 3: 3
+Card 4: 4
+Card 5: 5
+High Card!
+*/
+
 import java.util.Arrays;
 import java.util.Scanner;
 
