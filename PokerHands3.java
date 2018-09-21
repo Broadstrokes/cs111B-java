@@ -16,7 +16,7 @@ public class PokerHands3 {
 
 
   public static void println(Object line) { System.out.println(line); }
-	public static void print(Object line) { System.out.print(line); }
+  public static void print(Object line) { System.out.print(line); }
   
   public static int[] getFrequencies(int numItems) {
     Scanner input = new Scanner(System.in);
@@ -70,7 +70,7 @@ public class PokerHands3 {
         numCardsSeen += 1;
       }
 
-      if (numCardsSeen == 5) { idxEnd = i; }
+      if (numCardsSeen == totalNumOfCards) { idxEnd = i; }
     }
 
     containsFullHouse = containsThreeOfaKind && containsSinglePair;
