@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class HighScores {
 
@@ -9,6 +10,7 @@ public class HighScores {
 		ArrayList<Integer> scores = new ArrayList<>(5);
 
 		initialize(names, scores);
+		sort(names, scores);
 	}
 
 
@@ -31,10 +33,38 @@ public class HighScores {
 			}	
 	}
 
+	public static void sort(ArrayList<String> names, ArrayList<Integer> scores) {
+		int indexToSwap;
+		int size = scores.size();
+
+		for (int i = 0; i < size; i++) {
+		    indexToSwap = findIndexOfLargest(scores, i, size);
+		    Collections.swap(scores, i, indexToSwap);
+		    Collections.swap(names, i, indexToSwap);
+		}
+	}
 
 	public static void initialize(ArrayList<String> names, ArrayList<Integer> scores) {}
 	public static void sort(ArrayList<String> names, ArrayList<Integer> scores) {}
 	public static void display(ArrayList<String> names, ArrayList<Integer> scores) {}
+		////////////////////
+		// HELPER METHODS //
+		////////////////////
+
+	/*
+		Helper method for sort
+	 */
+	public static int findIndexOfLargest(ArrayList<Integer> scores, int startingIndex, int numItems) {
+	    int indexOfLargest = startingIndex;
+	    
+	    for (int i = startingIndex + 1; i < numItems; i++) {
+	        if (scores.get(i) > scores.get(indexOfLargest)) {
+	            indexOfLargest = i;
+	        }
+	    }
+	    
+	    return indexOfLargest;
+	}
 }
 
 
