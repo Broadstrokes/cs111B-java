@@ -11,6 +11,7 @@ public class HighScores {
 
 		initialize(names, scores);
 		sort(names, scores);
+		display(names, scores);
 	}
 
 
@@ -47,6 +48,18 @@ public class HighScores {
 	public static void initialize(ArrayList<String> names, ArrayList<Integer> scores) {}
 	public static void sort(ArrayList<String> names, ArrayList<Integer> scores) {}
 	public static void display(ArrayList<String> names, ArrayList<Integer> scores) {}
+	public static void display(ArrayList<String> names, ArrayList<Integer> scores) {
+		int count = 0;
+		int size = scores.size();
+	
+		println("Top Scorers: ");
+
+		while (count < size) {
+		    println(names.get(count) + ": " + scores.get(count));
+		    count++;
+		}
+	}
+
 		////////////////////
 		// HELPER METHODS //
 		////////////////////
