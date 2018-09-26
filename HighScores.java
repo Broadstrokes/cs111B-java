@@ -15,8 +15,6 @@ public class HighScores {
 	}
 
 
-	public static void println(Object line) { System.out.println(line); }
-	public static void print(Object line) { System.out.print(line); }
 	public static void initialize(ArrayList<String> names, ArrayList<Integer> scores) {
 	    Scanner input = new Scanner(System.in);
 	    int size = 5;
@@ -45,9 +43,6 @@ public class HighScores {
 		}
 	}
 
-	public static void initialize(ArrayList<String> names, ArrayList<Integer> scores) {}
-	public static void sort(ArrayList<String> names, ArrayList<Integer> scores) {}
-	public static void display(ArrayList<String> names, ArrayList<Integer> scores) {}
 	public static void display(ArrayList<String> names, ArrayList<Integer> scores) {
 		int count = 0;
 		int size = scores.size();
@@ -78,6 +73,9 @@ public class HighScores {
 	    
 	    return indexOfLargest;
 	}
+
+	public static void println(Object line) { System.out.println(line); }
+	public static void print(Object line) { System.out.print(line); }
 }
 
 
