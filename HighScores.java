@@ -5,17 +5,31 @@ public class HighScores {
 
 
 	public static void main(String[] args) {
-		final String PROMPT1 = "Enter the name for score #";
-		final String PROMPT2 = "Enter the score for score #";
-		List<String> names = new ArrayList<>(5);
-		List<String> scores = new ArrayList<>(5);
+		ArrayList<String> names = new ArrayList<>(5);
+		ArrayList<Integer> scores = new ArrayList<>(5);
 
-		println(PROMPT1);
+		initialize(names, scores);
 	}
 
 
 	public static void println(Object line) { System.out.println(line); }
 	public static void print(Object line) { System.out.print(line); }
+	public static void initialize(ArrayList<String> names, ArrayList<Integer> scores) {
+	    Scanner input = new Scanner(System.in);
+	    int size = 5;
+			int count = 0;
+	    final String PROMPT1 = "Enter the name for score #";
+	    final String PROMPT2 = "Enter the score for score #";
+
+			while(count < size) {
+				count++;
+				
+				print(PROMPT1 + count + ": ");
+				names.add(input.next());
+				print(PROMPT2 + count + ": ");
+				scores.add(input.nextInt());
+			}	
+	}
 
 
 	public static void initialize(ArrayList<String> names, ArrayList<Integer> scores) {}
