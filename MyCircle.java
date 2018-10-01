@@ -2,6 +2,7 @@
 	MyCircle Class
 */
 
+import java.lang.Math.*;
 
 public class MyCircle {
 	private double x,
@@ -60,5 +61,14 @@ public class MyCircle {
 	 */
 	public double getRadius() {
 		return radius;
+	}
+	
+	/**
+	 * The getArea method returns a MyCicle
+	 * objects area
+	 * @return The area a MyCircle object
+	 */
+	public double getArea() {
+		return Math.PI * radius * radius;
 	}
 }
