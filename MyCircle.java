@@ -10,6 +10,18 @@ public class MyCircle {
 	private double radius;
 
 	/**
+	 * Constructor		
+	 * @param  valX      The x field of MyCircle
+	 * @param  valY      The y field of MyCircle
+	 * @param  valRadius The radius of MyCircle
+	 */
+	public MyCircle(double valX, double valY, double valRadius) {
+		x = valX;
+		y = valY;
+		radius = valRadius;
+	}
+
+	/**
 	 * The setX method stores a value in the
 	 * x field
 	 * @param value The value to store in x
@@ -62,7 +74,7 @@ public class MyCircle {
 	public double getRadius() {
 		return radius;
 	}
-	
+
 	/**
 	 * The getArea method returns a MyCicle
 	 * objects area
