@@ -5,9 +5,19 @@
 import java.lang.Math.*;
 
 public class MyCircle {
-	private double x,
-	private double y,
+	private double x;
+	private double y;
 	private double radius;
+
+
+	/**
+	 * no-arg constructor
+	 */
+	public MyCircle() {
+		x = 0;
+		y = 0;
+		radius = 0;
+	}
 
 	/**
 	 * Constructor		
