@@ -21,8 +21,8 @@ public class MyCircle {
 
 	/**
 	 * Constructor		
-	 * @param  valX      The x field of MyCircle
-	 * @param  valY      The y field of MyCircle
+	 * @param  valX      The x field of MyCircle (center X coordinate)
+	 * @param  valY      The y field of MyCircle (center Y coordinate)
 	 * @param  valRadius The radius of MyCircle
 	 */
 	public MyCircle(double valX, double valY, double valRadius) {
@@ -33,7 +33,7 @@ public class MyCircle {
 
 	/**
 	 * The setX method stores a value in the
-	 * x field
+	 * x field - (center X coordinate)
 	 * @param value The value to store in x
 	 */
 	public void setX(double value) {
@@ -42,7 +42,7 @@ public class MyCircle {
 
 	/**
 	 * The setY method stores a value in the 
-	 * y field
+	 * y field - (center Y coordinate)
 	 * @param value The value to store in y
 	 */
 	public void setY(double value) {
@@ -60,7 +60,7 @@ public class MyCircle {
 
 	/**
 	 * The getX method returns a MyCircle
-	 * object's x field
+	 * object's x field - (center X coordinate)
 	 * @return The value in the x field
 	 */
 	public double getX() {
@@ -69,7 +69,7 @@ public class MyCircle {
 
 	/**
 	 * The getY method returns a MyCircle
-	 * object's y field
+	 * object's y field - (center Y coordinate)
 	 * @return The value in the y field
 	 */
 	public double getY() {
@@ -88,9 +88,31 @@ public class MyCircle {
 	/**
 	 * The getArea method returns a MyCicle
 	 * objects area
-	 * @return The area a MyCircle object
+	 * @return The area of a MyCircle object
 	 */
 	public double getArea() {
 		return Math.PI * radius * radius;
+	}
+
+	/**
+	 * The doesOverlap method returns true if
+	 * this MyCircle overlaps the passed in
+	 * MyCircle argument
+	 * Two circles overlap if the sum of their
+	 * radius' is greater than or equal to the
+	 * distance between their centers
+	 * @param  otherCircle Another MyCircle
+	 * @return             Returns true if the
+	 *                     this MyCircle and the passed in otherCircle
+	 *                     overlap, otherwise returns false
+	 */
+	public boolean doesOverlap(MyCircle otherCircle) {
+		double sumRadii = radius + otherCircle.getRadius();
+		double distanceBetweenCenters = Math.sqrt(
+			Math.pow((x - otherCircle.getX()), 2) +
+			Math.pow((y - otherCircle.getY()), 2)
+		);
+
+		return sumRadii >= distanceBetweenCenters;
 	}
 }
