@@ -22,14 +22,18 @@ public class MyCircle {
 	 * y field
 	 * @param value The value to store in y
 	 */
-	public void setY(double value) {}
+	public void setY(double value) {
+		y = value;
+	}
 
 	/**
 	 * The setRadius method stores a value in the
 	 * radius field
 	 * @param value The value to store in radius
 	 */
-	public void setRadius(double value) {}
+	public void setRadius(double value) {
+		radius = value;
+	}
 
 	//Getters
 	public double getX() {}
