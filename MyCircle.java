@@ -40,19 +40,25 @@ public class MyCircle {
 	 * object's x field
 	 * @return The value in the x field
 	 */
-	public double getX() {}
+	public double getX() {
+		return x;
+	}
 
 	/**
 	 * The getY method returns a MyCircle
 	 * object's y field
 	 * @return The value in the y field
 	 */
-	public double getY() {}
+	public double getY() {
+		return y;
+	}
 	
 	/**
 	 * The getRadius returns a MyCircle
 	 * object's radius field
 	 * @return The value in the radius field
 	 */
-	public double getRadius() {}
+	public double getRadius() {
+		return radius;
+	}
 }
