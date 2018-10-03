@@ -43,6 +43,22 @@ public class MyCircleTester {
 		test((c.doesOverlap(d) == false), "Passed", "Failed");
 		test((d.doesOverlap(a) == false), "Passed", "Failed");
 		test((d.doesOverlap(c) == false), "Passed", "Failed");
+
+
+		ArrayList<MyCircle> myCircles = new ArrayList<MyCircle>();
+		
+		myCircles.add(a); //0
+		myCircles.add(b); // overlaps with A
+		myCircles.add(c); // overlaps with A
+		myCircles.add(d); // overlaps with B
+
+
+		System.out.println("======RETURN AREA OF EACH CIRCLE======");
+
+		for (MyCircle circle : myCircles) {
+			System.out.println(circle.getArea());
+		}
+
 	}
 
 
