@@ -15,6 +15,19 @@ public class MyCircleTester {
 		test((testCircle.getX() == 0), "Passed", "Failed");
 		test((testCircle.getY() == 0), "Passed", "Failed");
 		test((testCircle.getRadius() == 0), "Passed", "Failed");
+
+		System.out.println("======TESTING GETTERS & SETTERS======");
+
+		testCircle.setX(5);
+		testCircle.setY(10);
+		testCircle.setRadius(10);
+
+
+		test((testCircle.getX() == 5), "Passed", "Failed");
+		test((testCircle.getY() == 10), "Passed", "Failed");
+		test((testCircle.getRadius() != 0), "Passed", "Failed");
+		test((testCircle.getRadius() != Math.PI * Math.pow(testCircle.getRadius(), 2)), "Passed", "Failed");
+
 	}
 
 
