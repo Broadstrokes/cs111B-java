@@ -13,7 +13,7 @@ public class HighScores {
   }
 
   public static void initialize(ArrayList < String > names, ArrayList < Integer > scores) {
-    Scanner input = new Scanner(System. in );
+    Scanner input = new Scanner(System.in);
     int size = 5;
     int count = 0;
     final String PROMPT1 = "Enter the name for score #";
