@@ -28,6 +28,21 @@ public class MyCircleTester {
 		test((testCircle.getRadius() != 0), "Passed", "Failed");
 		test((testCircle.getRadius() != Math.PI * Math.pow(testCircle.getRadius(), 2)), "Passed", "Failed");
 
+		System.out.println("======TESTING OVERLAP======");
+		test((a.doesOverlap(b) == true), "Passed", "Failed");
+		test((a.doesOverlap(c) == true), "Passed", "Failed");
+		test((b.doesOverlap(a) == true), "Passed", "Failed");
+		test((c.doesOverlap(a) == true), "Passed", "Failed");
+		test((d.doesOverlap(b) == true), "Passed", "Failed");
+		test((b.doesOverlap(d) == true), "Passed", "Failed");
+		
+		System.out.println("======TESTING NO OVERLAP======");
+		test((a.doesOverlap(d) == false), "Passed", "Failed");
+		test((b.doesOverlap(c) == false), "Passed", "Failed");
+		test((c.doesOverlap(b) == false), "Passed", "Failed");
+		test((c.doesOverlap(d) == false), "Passed", "Failed");
+		test((d.doesOverlap(a) == false), "Passed", "Failed");
+		test((d.doesOverlap(c) == false), "Passed", "Failed");
 	}
 
 
