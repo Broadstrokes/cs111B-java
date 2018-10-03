@@ -9,6 +9,12 @@ public class MyCircleTester {
 		MyCircle c = new MyCircle(11, 2, 4); // c overlaps with: a
 		MyCircle d = new MyCircle(-8, -6, 8); // d overlaps with: b
 
+		System.out.println("======TESTING CONSTRUCTOR======");
+		MyCircle testCircle = new MyCircle();
+		
+		test((testCircle.getX() == 0), "Passed", "Failed");
+		test((testCircle.getY() == 0), "Passed", "Failed");
+		test((testCircle.getRadius() == 0), "Passed", "Failed");
 	}
 
 
