@@ -167,4 +167,12 @@ public class Circle {
 
  	return output;
  }
+
+ public Boolean equals(Circle otherCircle) {
+ 	return (
+ 		(center.getX() == otherCircle.getX()) &&
+ 		(center.getY() == otherCircle.getY()) &&
+ 		(radius == otherCircle.getRadius())
+ 	);
+ } 
 }
