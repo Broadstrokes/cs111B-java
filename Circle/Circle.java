@@ -147,10 +147,7 @@ public class Circle {
   */
  public boolean doesOverlap(Circle otherCircle) {
   double sumRadii = radius + otherCircle.getRadius();
-  double distanceBetweenCenters = Math.sqrt(
-   Math.pow((center.getX() - otherCircle.getX()), 2) +
-   Math.pow((center.getY() - otherCircle.getY()), 2)
-  );
+  double distanceBetweenCenters = center.distance(otherCircle.getCenter());
 
   return sumRadii >= distanceBetweenCenters;
  }
