@@ -17,16 +17,40 @@ public class Circle {
 		radius = 0;
 	}
 
+
+	/**
+	 * Constructor
+	 * @param  o The center field of Circle (center X coordinate)
+	 * @param  r The radius field of Circle
+	 */
+	public Circle(Point o, double r) {
+		center = o;
+		radius = r;
+	}
+
 	/**
 	 * Constructor		
-	 * @param  valX      The x field of Circle (center X coordinate)
-	 * @param  valY      The y field of Circle (center Y coordinate)
-	 * @param  valRadius The radius of Circle
+	 * @param  xValue		The x field of Circle (center X coordinate)
+	 * @param  yValue		The y field of Circle (center Y coordinate)
+	 * @param  r 				The radius field of Circle
 	 */
-	public Circle(double valX, double valY, double valRadius) {
-		x = valX;
-		y = valY;
-		radius = valRadius;
+	public Circle(double xValue, double yValue, double r) {
+		center.setX(xValue);
+		center.setY(yValue);
+		radius = r;
+	}
+
+	/**
+	 * Constructor 
+	 * @param  c Another circle
+	 */
+
+	public Circle(Circle c) {
+		center.setX(c.getX());
+		center.setY(c.getY());
+		radius = c.getRadius();
+	}
+
 	/**
 	 * The setCenter method store x & y coordinates 
 	 * in the center field of Circle
