@@ -13,7 +13,7 @@ public class Circle {
   * no-arg constructor
   */
  public Circle() {
-  center();
+  center = new Point();
   radius = 0;
  }
 
@@ -35,8 +35,7 @@ public class Circle {
   * @param  r 				The radius field of Circle
   */
  public Circle(double xValue, double yValue, double r) {
-  center.setX(xValue);
-  center.setY(yValue);
+  center = new Point(xValue, yValue);
   radius = r;
  }
 
@@ -46,8 +45,7 @@ public class Circle {
   */
 
  public Circle(Circle c) {
-  center.setX(c.getX());
-  center.setY(c.getY());
+  center = new Point(c.getX(), c.getY());
   radius = c.getRadius();
  }
 
@@ -58,7 +56,7 @@ public class Circle {
   *          of the circle
   */
  public void setCenter(Point p) {
-  center = P;
+  center = p;
  }
 
  /**
@@ -114,7 +112,7 @@ public class Circle {
   * @return The value in the y field
   */
  public double getY() {
-  return center.getX();
+  return center.getY();
  }
 
  /**
