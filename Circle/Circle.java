@@ -24,7 +24,7 @@ public class Circle {
   * @param  r The radius field of Circle
   */
  public Circle(Point o, double r) {
-  center = o;
+  center = new Point(o);
   radius = r;
  }
 
