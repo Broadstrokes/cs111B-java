@@ -5,8 +5,7 @@
 import java.lang.Math.*;
 
 public class Circle {
-	private double x;
-	private double y;
+	private Point center;
 	private double radius;
 
 
@@ -14,8 +13,7 @@ public class Circle {
 	 * no-arg constructor
 	 */
 	public Circle() {
-		x = 0;
-		y = 0;
+		center();
 		radius = 0;
 	}
 
@@ -29,24 +27,32 @@ public class Circle {
 		x = valX;
 		y = valY;
 		radius = valRadius;
+	/**
+	 * The setCenter method store x & y coordinates 
+	 * in the center field of Circle
+	 * @param p Point object indicating the center coordinates
+	 *          of the circle
+	 */
+	public void setCenter(Point p) {
+		center = P;
 	}
 
 	/**
 	 * The setX method stores a value in the
-	 * x field - (center X coordinate)
-	 * @param value The value to store in x
+	 * center X coordinate
+	 * @param value The value to store in center.x
 	 */
 	public void setX(double value) {
-		x = value;
+		center.setX(value);
 	}
 
 	/**
 	 * The setY method stores a value in the 
-	 * y field - (center Y coordinate)
-	 * @param value The value to store in y
+	 * center Y coordinate
+	 * @param value The value to store in center.y
 	 */
 	public void setY(double value) {
-		y = value;
+		center.setY(value);
 	}
 
 	/**
@@ -59,12 +65,23 @@ public class Circle {
 	}
 
 	/**
+	 * The getCenter method returns a Point object
+	 * with x & y coordinates of the center of the Circle
+	 * @return 	Point object with x & y coordinates 
+	 *          of the center of the Circle
+	 */
+	public Point getCenter() {
+		return center;
+	}
+
+
+	/**
 	 * The getX method returns a Circle
 	 * object's x field - (center X coordinate)
 	 * @return The value in the x field
 	 */
 	public double getX() {
-		return x;
+		return center.getX();
 	}
 
 	/**
@@ -73,7 +90,7 @@ public class Circle {
 	 * @return The value in the y field
 	 */
 	public double getY() {
-		return y;
+		return center.getX();
 	}
 	
 	/**
@@ -109,8 +126,8 @@ public class Circle {
 	public boolean doesOverlap(Circle otherCircle) {
 		double sumRadii = radius + otherCircle.getRadius();
 		double distanceBetweenCenters = Math.sqrt(
-			Math.pow((x - otherCircle.getX()), 2) +
-			Math.pow((y - otherCircle.getY()), 2)
+			Math.pow((center.getX() - otherCircle.getX()), 2) +
+			Math.pow((center.getY() - otherCircle.getY()), 2)
 		);
 
 		return sumRadii >= distanceBetweenCenters;
