@@ -1,32 +1,64 @@
 import java.util.ArrayList;
+import java.lang.Math.*;
 
-
-public class MyCircleTester {
+public class CircleProgram {
 	public static void main(String[] args) {
 
-		MyCircle a = new MyCircle(3, 2, 5); // a overlaps with: b, c
-		MyCircle b = new MyCircle(-6, 4, 5); // b overlaps with: a, d
-		MyCircle c = new MyCircle(11, 2, 4); // c overlaps with: a
-		MyCircle d = new MyCircle(-8, -6, 8); // d overlaps with: b
+		Circle a = new Circle(3, 2, 5); // a overlaps with: b, c
+		Circle b = new Circle(-6, 4, 5); // b overlaps with: a, d
+		Circle c = new Circle(11, 2, 4); // c overlaps with: a
+		Circle d = new Circle(-8, -6, 8); // d overlaps with: b
 
-		System.out.println("======TESTING CONSTRUCTOR======");
-		MyCircle testCircle = new MyCircle();
+		System.out.println("================================");
+		System.out.println("======TESTING CONSTRUCTORS======");
+		System.out.println("================================");
+
+		System.out.println("====== CONSTRUCTOR w/ no-args ======");
+		Circle testCircle1 = new Circle();
 		
-		test((testCircle.getX() == 0), "Passed", "Failed");
-		test((testCircle.getY() == 0), "Passed", "Failed");
-		test((testCircle.getRadius() == 0), "Passed", "Failed");
+		test((testCircle1.getX() == 0), "Passed", "Failed");
+		test((testCircle1.getY() == 0), "Passed", "Failed");
+		test((testCircle1.getRadius() == 0), "Passed", "Failed");
+
+
+		System.out.println("====== CONSTRUCTOR w/ Point ======");
+		Point p = new Point(3, 2);
+		Circle testCircle2 = new Circle (p, 10);
+		test((testCircle2.getX() == 3), "Passed", "Failed");
+		test((testCircle2.getY() == 2), "Passed", "Failed");
+		test((testCircle2.getRadius() == 10), "Passed", "Failed");
+		test((testCircle2.getArea() == Math.PI * 10 * 10), "Passed", "Failed");
+
+
+		System.out.println("====== CONSTRUCTOR w/ x, y, & r ======");
+		Circle testCircle3 = new Circle (3, 2, 10);
+		test((testCircle3.getX() == 3), "Passed", "Failed");
+		test((testCircle3.getY() == 2), "Passed", "Failed");
+		test((testCircle3.getRadius() == 10), "Passed", "Failed");
+		test((testCircle3.getArea() == Math.PI * 10 * 10), "Passed", "Failed");
+
+
+
+		System.out.println("====== CONSTRUCTOR w/ Circle Object ======");
+		Circle testCircle4 = new Circle(b);
+		test((testCircle4.getX() == -6), "Passed", "Failed");
+		test((testCircle4.getY() == 4), "Passed", "Failed");
+		test((testCircle4.getRadius() == 5), "Passed", "Failed");
+		test((testCircle4.getArea() == Math.PI * 5 * 5), "Passed", "Failed");
+
+
 
 		System.out.println("======TESTING GETTERS & SETTERS======");
 
-		testCircle.setX(5);
-		testCircle.setY(10);
-		testCircle.setRadius(10);
+		testCircle1.setX(5);
+		testCircle1.setY(10);
+		testCircle1.setRadius(10);
 
 
-		test((testCircle.getX() == 5), "Passed", "Failed");
-		test((testCircle.getY() == 10), "Passed", "Failed");
-		test((testCircle.getRadius() != 0), "Passed", "Failed");
-		test((testCircle.getRadius() != Math.PI * Math.pow(testCircle.getRadius(), 2)), "Passed", "Failed");
+		test((testCircle1.getX() == 5), "Passed", "Failed");
+		test((testCircle1.getY() == 10), "Passed", "Failed");
+		test((testCircle1.getRadius() != 0), "Passed", "Failed");
+		test((testCircle1.getRadius() != Math.PI * Math.pow(testCircle1.getRadius(), 2)), "Passed", "Failed");
 
 		System.out.println("======TESTING OVERLAP======");
 		test((a.doesOverlap(b) == true), "Passed", "Failed");
@@ -45,7 +77,7 @@ public class MyCircleTester {
 		test((d.doesOverlap(c) == false), "Passed", "Failed");
 
 
-		ArrayList<MyCircle> myCircles = new ArrayList<MyCircle>();
+		ArrayList<Circle> myCircles = new ArrayList<Circle>();
 		
 		myCircles.add(a); //0
 		myCircles.add(b); // overlaps with A
@@ -55,7 +87,7 @@ public class MyCircleTester {
 
 		System.out.println("======RETURN AREA OF EACH CIRCLE======");
 
-		for (MyCircle circle : myCircles) {
+		for (Circle circle : myCircles) {
 			System.out.println(circle.getArea());
 		}
 
