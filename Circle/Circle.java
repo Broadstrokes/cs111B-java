@@ -153,14 +153,10 @@ public class Circle {
  }
 
  public String toString() {
- 	double x, y, area;
- 	x = center.getX();
- 	y = center.getY();
- 	area = this.getArea();
-
- 	String output =(
- 		"Center: (" +  x + ", " +  y + ") | Radius: " + radius + 
- 		" | Area: " + area
+ 	String output = (
+ 		"Center: " + center.toString() + 
+ 		" | Radius: " + radius + 
+ 		" | Area: " + this.getArea()
  	);
 
  	return output;
