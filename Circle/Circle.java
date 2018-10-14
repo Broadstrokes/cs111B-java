@@ -19,8 +19,8 @@ public class Circle {
 
 
  /**
-  * Constructor
-  * @param  o The center field of Circle (center X coordinate)
+  * 2 Argument Constructor
+  * @param  o The center field of Circle (center x, y coordinate)
   * @param  r The radius field of Circle
   */
  public Circle(Point o, double r) {
@@ -29,7 +29,7 @@ public class Circle {
  }
 
  /**
-  * Constructor		
+  * 3 Argument Constructor		
   * @param  xValue		The x field of Circle (center X coordinate)
   * @param  yValue		The y field of Circle (center Y coordinate)
   * @param  r 				The radius field of Circle
@@ -40,7 +40,7 @@ public class Circle {
  }
 
  /**
-  * Constructor 
+  * Copy Constructor 
   * @param  c Another circle
   */
 
@@ -154,6 +154,7 @@ public class Circle {
 
   return sumRadii >= distanceBetweenCenters;
  }
+
  public String toString() {
  	double x, y, area;
  	x = center.getX();
