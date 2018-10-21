@@ -30,9 +30,12 @@ public class BartProgram {
 		BARTTrain train3 = new BARTTrain("Montgomery", 5.0, 15.0, true);
 		BARTTrain train4 = new BARTTrain("Montgomery", 5.0, 15.0, true);
 		BARTTrain train5 = new BARTTrain("Powell", 5.0, 15.0, true);
+		BARTTrain train6 = new BARTTrain("Montgomery", 5.0, 25.0, true);
 
 		test(train3.equals(train4) == true, "passed", "failed", "identify same train");
+		test(train2.equals(train4) == true, "passed", "failed", "identify same train");
 		test(train5.equals(train4) == false, "passed", "failed", "identify not same train");
+		test(train6.equals(train4) == false, "passed", "failed", "identify not same train");
 
 	}
 
