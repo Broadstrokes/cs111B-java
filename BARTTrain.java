@@ -44,4 +44,13 @@ public class BARTTrain {
 			this.getMinutesToNextStation() == t.getMinutesToNextStation()
 		);
 	}
+
+	public String toString() {
+		return (
+			(this.isInbound() ? "Inbound" : "Outbound")
+			+ ". " +
+			this.getNextStation() + " in " + 
+			this.getMinutesToNextStation()
+		);
+	}
 }
