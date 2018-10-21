@@ -23,6 +23,17 @@ public class BartProgram {
 		test(train2.getMinutesToNextStation() != 5, "passed", "failed", "get correct time to next station");
 
 
+		println("==========================");
+		println(" TEST Equal Method ");
+		println("==========================");
+
+		BARTTrain train3 = new BARTTrain("Montgomery", 5.0, 15.0, true);
+		BARTTrain train4 = new BARTTrain("Montgomery", 5.0, 15.0, true);
+		BARTTrain train5 = new BARTTrain("Powell", 5.0, 15.0, true);
+
+		test(train3.equals(train4) == true, "passed", "failed", "identify same train");
+		test(train5.equals(train4) == false, "passed", "failed", "identify not same train");
+
 	}
 
 	public static void println(Object line) { System.out.println(line); }

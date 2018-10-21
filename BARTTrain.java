@@ -23,11 +23,25 @@ public class BARTTrain {
 	}
 	public String getNextStation() { 
 		return this.nextStation;
+	}	
+	public boolean isInbound() { 
+		return this.inbound;
 	}
 	public double getMinutesToNextStation() { 
 		return (this.milesToNextStation / this.milesPerHour);
 	}
 	public void switchInbound() { 
 		this.inbound = !this.inbound;
+	}
+
+	public boolean equals(BARTTrain t) {
+		return (
+		// same direction
+			this.isInbound() == t.isInbound() &&
+		// same place
+			this.getNextStation() == t.getNextStation() &&
+		// same speed
+			this.getMinutesToNextStation() == t.getMinutesToNextStation()
+		);
 	}
 }
