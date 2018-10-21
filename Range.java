@@ -1,49 +1,49 @@
- public class Range {
+public class Range {
 	private 
 		int lowerBound;
 		int upperBound;
 
 
-  Range(int lower, int upper) {
-		lowerBound = lower;
-		upperBound = upper;
-  }
+	Range(int lower, int upper) {
+		this.lowerBound = lower;
+		this.upperBound = upper;
+	}
 
-  void setLowerBound(int value) {
-		lowerBound = value;
-  }
+	void setLowerBound(int value) {
+		this.lowerBound = value;
+	}
 
-  int getLowerBound() {
-		return lowerBound;
-  }
+	int getLowerBound() {
+		return this.lowerBound;
+	}
 
-  void setUpperBound(int value) {
-		upperBound = value;
-  }
+	void setUpperBound(int value) {
+		this.upperBound = value;
+	}
 
 
-  int getUpperBound() {
-		return upperBound;
-  }
+	int getUpperBound() {
+		return this.upperBound;
+	}
 
-  boolean contains(int value) {
+	boolean contains(int value) {
 		return (
-			(lowerBound <= value) && 
-			(value <= upperBound)
+			(this.lowerBound <= value) && 
+			(value <= this.upperBound)
 		); 
-  }
+	}
 
-  boolean contains(Range range) {
+	boolean contains(Range range) {
 		return (
-			(lowerBound <= range.lowerBound) &&
-			(upperBound >= range.upperBound)
+			(this.lowerBound <= range.lowerBound) &&
+			(this.upperBound >= range.upperBound)
 		);
-  }
+	}
 
-  boolean equals(Range r) {
+	boolean equals(Range r) {
 		return (
-			(lowerBound == r.lowerBound) && 
-			(upperBound == r.upperBound)
+			(this.lowerBound == r.lowerBound) && 
+			(this.upperBound == r.upperBound)
 		);
-  }
- }	
+	}
+}	
