@@ -31,11 +31,24 @@ public class BartProgram {
 		BARTTrain train4 = new BARTTrain("Montgomery", 5.0, 15.0, true);
 		BARTTrain train5 = new BARTTrain("Powell", 5.0, 15.0, true);
 		BARTTrain train6 = new BARTTrain("Montgomery", 5.0, 25.0, true);
+		BARTTrain train7 = new BARTTrain("Fruitvale", 5.5, 25.0, false);
 
 		test(train3.equals(train4) == true, "passed", "failed", "identify same train");
 		test(train2.equals(train4) == true, "passed", "failed", "identify same train");
 		test(train5.equals(train4) == false, "passed", "failed", "identify not same train");
 		test(train6.equals(train4) == false, "passed", "failed", "identify not same train");
+
+		println("==========================");
+		println(" TEST toString Method ");
+		println("==========================");
+
+		println(train1.toString());
+		println(train2.toString());
+		println(train3.toString());
+		println(train4.toString());
+		println(train5.toString());
+		println(train6.toString());
+		println(train7.toString());
 
 	}
 
