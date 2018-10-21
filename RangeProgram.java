@@ -21,7 +21,7 @@ public class RangeProgram {
 
 		// Check to see if r2 is fully inside r1
 		if (r1.contains(r2)) 
-		    System.out.println("r1 contains r2");		 
+		    System.out.println("r1 contains r2");
 		else
 			System.out.println("Range 2 is not inside range 1");
 	}
