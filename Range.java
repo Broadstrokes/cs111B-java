@@ -27,7 +27,17 @@
   }
 
   boolean contains(int value) {
-		return (lowerBound <= value) && (value <= upperBound); 
+		return (
+			(lowerBound <= value) && 
+			(value <= upperBound)
+		); 
+  }
+
+  boolean contains(Range range) {
+		return (
+			(lowerBound <= range.lowerBound) &&
+			(upperBound >= range.upperBound)
+		);
   }
 
   boolean equals(Range r) {
