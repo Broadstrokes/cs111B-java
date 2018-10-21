@@ -1,3 +1,24 @@
+import java.lang.*; // Double.compare
+
+/*
+	Double.compare returns 
+	the value 0 if d1 is numerically equal to d2; 
+	a value less than 0 if d1 is numerically less than d2; 
+	and a value greater than 0 if d1 is numerically greater than d2.
+
+	.equal vs ==
+	In simple words, == checks if both objects point to the same 
+	memory location whereas .equals() evaluates to the comparison 
+	of values in the objects.
+
+	String s1 = new String("HELLO"); 
+	String s2 = new String("HELLO"); 
+	System.out.println(s1 == s2);  // false
+	System.out.println(s1.equals(s2)); // true
+
+ */
+
+
 public class BARTTrain {
 	private String nextStation;
 	private double milesPerHour;
@@ -39,9 +60,9 @@ public class BARTTrain {
 		// same direction
 			this.isInbound() == t.isInbound() &&
 		// same place
-			this.getNextStation() == t.getNextStation() &&
+			(this.getNextStation().equals(t.getNextStation())) &&
 		// same speed
-			this.getMinutesToNextStation() == t.getMinutesToNextStation()
+			Double.compare(this.getMinutesToNextStation(), t.getMinutesToNextStation()) == 0
 		);
 	}
 
