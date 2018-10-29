@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 import java.util.regex.Pattern;
 import java.util.function.UnaryOperator;
 import java.lang.*; // Double.
 import javafx.application.Application;
 import javafx.scene.control.TextFormatter;
+=======
+import java.lang.*; // Double.
+import javafx.application.Application;
+>>>>>>> b8f133c43c35ca13e0011d4601aed270ba57fd25
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
