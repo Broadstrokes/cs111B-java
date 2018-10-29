@@ -1,53 +1,86 @@
+import java.lang.*; // Double.
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-public class FxLabelExample extends Application
-{
-	public static void main(String[] args)
-	{
+public class CelsiusConverter extends Application {
+	Label messageLbl = new Label("Farenheit: ");
+
+	public static void main(String[] args) {
 		Application.launch(args);
 	}
 
 	@Override
-	public void start(Stage stage)
-	{
-		// Create the Text Fields
-		TextField firstNameFld = new TextField();
-		TextField lastNameFld = new TextField();
+	public void start(Stage stage) {
+		// Celsius input field
+		TextField celsiusFld = new TextField();
+		// // Set field width
+		celsiusFld.setPrefColumnCount(10);
 
-		// Create the Labels
-		Label firstNameLbl = new Label("_First Name:");
-		Label lastNameLbl = new Label("_Last Name:");
+		// Allow only numerics
+		// https://stackoverflow.com/questions/7555564/what-is-the-recommended-way-to-make-a-numeric-textfield-in-javafx
+		celsiusFld.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (!newValue.matches("\\d*")) {
+					celsiusFld.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
 		
-		// Bind the Label to the according Field
-		firstNameLbl.setLabelFor(firstNameFld);
-		// Set mnemonic parsing to the Label
-		firstNameLbl.setMnemonicParsing(true);
+		// Convert button
+		Button convertBtn = new Button("_Convert");
+		convertBtn.setDefaultButton(true);
+		convertBtn.setOnAction(new EventHandler<ActionEvent>() {
+			@Override public void handle(ActionEvent e) {
+				Double f = (Double.valueOf(celsiusFld.getText()) * 9/5) + 32.0;
+				printMessage("Farenheit: " + f.toString() + " Degrees");
+			}
+		});
+			
+		// GridPane root = new GridPane();
+		// root.setHgap(10);
+		// root.setVgap(10);
 		
-		// Bind the Label to the according Field
-		lastNameLbl.setLabelFor(lastNameFld);
-		// Set mnemonic parsing to the Label
-		lastNameLbl.setMnemonicParsing(true);
+		// root.addRow(0, new Label("Celsius"), celsiusFld);
+		// root.addRow(2, messageLbl);
+		// root.addRow(3, convertBtn);
+		// root.setMinSize(300, 100);
+
+		// Create a HBox
+		HBox labelFieldButtonBox = new HBox();
+		// Add the children to the HBox
+		labelFieldButtonBox.getChildren().addAll(new Label("Celsius"), celsiusFld, convertBtn);
+		// Set the spacing between children to 10px
+		labelFieldButtonBox.setSpacing(10);
+
 		
-		// Create the GridPane
-		GridPane root = new GridPane();
-		// Add the Labels and Fields to the GridPane
-		root.addRow(0, firstNameLbl, firstNameFld);
-		root.addRow(1, lastNameLbl, lastNameFld);
-		// Set the Size of the GridPane
-		root.setMinSize(350, 250);
+		// Create the VBox
+		VBox root = new VBox();
+		// Add the children to the VBox
+		root.getChildren().addAll(labelFieldButtonBox, messageLbl);
 		
+		// Set the vertical spacing between children to 15px
+		root.setSpacing(15);
+		root.setMinSize(300, 100);
+
 		/* 
-		 * Set the padding of the GridPane
-		 * Set the border-style of the GridPane
-		 * Set the border-width of the GridPane
-		 * Set the border-insets of the GridPane
-		 * Set the border-radius of the GridPane
-		 * Set the border-color of the GridPane
+		 * Set the padding of the VBox
+		 * Set the border-style of the VBox
+		 * Set the border-width of the VBox
+		 * Set the border-insets of the VBox
+		 * Set the border-radius of the VBox
+		 * Set the border-color of the VBox
 		*/
 		root.setStyle("-fx-padding: 10;" +
 				"-fx-border-style: solid inside;" +
@@ -55,14 +88,16 @@ public class FxLabelExample extends Application
 				"-fx-border-insets: 5;" +
 				"-fx-border-radius: 5;" +
 				"-fx-border-color: blue;");
-		
-		// Create the Scene
+
 		Scene scene = new Scene(root);
-		// Add the scene to the Stage
 		stage.setScene(scene);
-		// Set the title of the Stage
-		stage.setTitle("A Label Example");
-		// Display the Stage
-		stage.show();		
+		stage.setTitle("Celsius to Farenheit Converter");
+		stage.show();
+	}
+
+	// Helper
+	
+	public void printMessage(String message) {
+		messageLbl.setText(message);
 	}
 }
