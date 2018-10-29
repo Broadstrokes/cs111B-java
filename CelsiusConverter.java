@@ -1,10 +1,11 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class CelsiusConverter extends Application
+public class FxLabelExample extends Application
 {
 	public static void main(String[] args)
 	{
@@ -14,30 +15,54 @@ public class CelsiusConverter extends Application
 	@Override
 	public void start(Stage stage)
 	{
-		// Create the Text
-		Text text = new Text("Hello JavaFX");
-		// Create the VBox
-		VBox root = new VBox();
-		// Add the Text to the VBox
-		root.getChildren().add(text);
-		// Set the Size of the VBox
-		root.setMinSize(350, 250);
+		// Create the Text Fields
+		TextField firstNameFld = new TextField();
+		TextField lastNameFld = new TextField();
 
+		// Create the Labels
+		Label firstNameLbl = new Label("_First Name:");
+		Label lastNameLbl = new Label("_Last Name:");
+		
+		// Bind the Label to the according Field
+		firstNameLbl.setLabelFor(firstNameFld);
+		// Set mnemonic parsing to the Label
+		firstNameLbl.setMnemonicParsing(true);
+		
+		// Bind the Label to the according Field
+		lastNameLbl.setLabelFor(lastNameFld);
+		// Set mnemonic parsing to the Label
+		lastNameLbl.setMnemonicParsing(true);
+		
+		// Create the GridPane
+		GridPane root = new GridPane();
+		// Add the Labels and Fields to the GridPane
+		root.addRow(0, firstNameLbl, firstNameFld);
+		root.addRow(1, lastNameLbl, lastNameFld);
+		// Set the Size of the GridPane
+		root.setMinSize(350, 250);
+		
+		/* 
+		 * Set the padding of the GridPane
+		 * Set the border-style of the GridPane
+		 * Set the border-width of the GridPane
+		 * Set the border-insets of the GridPane
+		 * Set the border-radius of the GridPane
+		 * Set the border-color of the GridPane
+		*/
+		root.setStyle("-fx-padding: 10;" +
+				"-fx-border-style: solid inside;" +
+				"-fx-border-width: 2;" +
+				"-fx-border-insets: 5;" +
+				"-fx-border-radius: 5;" +
+				"-fx-border-color: blue;");
+		
 		// Create the Scene
 		Scene scene = new Scene(root);
-		
-		// Set the Properties of the Stage
-		stage.setX(100);
-		stage.setY(200);
-		stage.setMinHeight(300);
-		stage.setMinWidth(400);
-
 		// Add the scene to the Stage
 		stage.setScene(scene);
 		// Set the title of the Stage
-		stage.setTitle("Your first JavaFX Example");
+		stage.setTitle("A Label Example");
 		// Display the Stage
-		stage.show();
+		stage.show();		
 	}
-
 }
