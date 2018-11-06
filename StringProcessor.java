@@ -67,10 +67,10 @@ public class StringProcessor {
 		return count;
 	}
 
+	public String getNoSpaceString() { 
+		return String.join("", this.str.split(" "));
+	}
 
-	// public String getNoSpaceString() { 
-
-	// }
 
 	// public String getNoVowelString() { 
 
