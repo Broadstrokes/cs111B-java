@@ -51,16 +51,14 @@ public class StringProcessor {
 	public int digitWordCount() { 
 		int count = 0;
 		String currentWord;
-		String cleanCurrentWord;
+		String currentWordWithoutSpecialCharacters;
 		String[] tokens = this.str.split(" ");
 
-		for(int i =0; i < tokens.length; i++) {
+		for(int i = 0; i < tokens.length; i++) {
 			currentWord = new String(tokens[i]);
-			cleanCurrentWord = currentWord.replaceAll("[^\\w\\s]","");
-			// System.out.println(currentWord);
+			currentWordWithoutSpecialCharacters = currentWord.replaceAll("[^\\w\\s]","");
 
-			if(digitWords.indexOf(cleanCurrentWord.toLowerCase()) > 1) {
-				System.out.println(tokens[i]);
+			if (digitWords.indexOf(currentWordWithoutSpecialCharacters.toLowerCase()) > 1) {
 				count++;
 			}			
 		}
