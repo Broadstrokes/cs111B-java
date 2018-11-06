@@ -14,9 +14,11 @@ public class StringProcessorProgram {
 		
 		String inputStr = "One for the money, two for the show";
 		String inputStr2 = "3 Blind Mice is one of my favorite songs.";
+		String inputStr3 = "One for the two, two for the show";
 
 		driver(inputStr);
 		driver(inputStr2);
+		driver(inputStr3);
 	}
 
 
@@ -46,6 +48,9 @@ public class StringProcessorProgram {
 		println("total length: " + (stringToBeProcessed.wordCount()));
 		println("upperCase length: " + (stringToBeProcessed.uppercaseCount()));
 		println("digit length: " + (stringToBeProcessed.digitCount()));
+		println("digitWord length: " + (stringToBeProcessed.digitWordCount()));
+		println("no spaces: " + (stringToBeProcessed.getNoSpaceString()));
+		println("no vowels: " + (stringToBeProcessed.getNoVowelString()));
 	}
 
 }
