@@ -1,9 +1,10 @@
 public class StringProcessor {
-	private String str;
-	private char[]  vowelsArray = new char[] {'a', 'e', 'i', 'o', 'u'};
-	private String digitWords = new String(
+	final private char[] vowelsArray = new char[] {'a', 'e', 'i', 'o', 'u'};
+	final private String digitWords = new String(
 		"zero one two three four five six seven eight nine"
 	);
+	final private String[] digits = new String[] {"0", "1", "2", "3", "4", "6", "7", "8", "9"};
+	private String str;
 
 	public StringProcessor() { 
 		str = "";
