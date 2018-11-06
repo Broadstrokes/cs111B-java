@@ -66,8 +66,17 @@ public class StringProcessor {
 		return count;
 	}
 
-	public String getNoSpaceString() { 
-		return String.join("", this.str.split(" "));
+	public String getNoSpaceString() {
+		char ch;
+		StringBuilder myNewStr = new StringBuilder("");
+
+		for (int i = 0; i < this.str.length(); i++) {
+			ch = this.str.charAt(i);
+			if (!Character.isWhitespace(ch)) {
+				myNewStr.append(ch);
+			}
+		}	
+			return myNewStr.toString();
 	}
 
 
