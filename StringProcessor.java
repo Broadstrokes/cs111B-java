@@ -25,7 +25,7 @@ public class StringProcessor {
 
 
 	public int wordCount() { 
-		return this.str.length();
+		return this.str.split(" ").length;
 	}
 
 	public int uppercaseCount() { 
