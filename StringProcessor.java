@@ -72,9 +72,29 @@ public class StringProcessor {
 	}
 
 
-	// public String getNoVowelString() { 
+	public String getNoVowelString() { 
+		char currentCharacterLowercased;
+		StringBuilder myNewStr = new StringBuilder("");
 
-	// }
+		for (int i = 0; i < this.str.length(); i++) {
+			currentCharacterLowercased = Character.toLowerCase(this.str.charAt(i));
+
+			if (
+					currentCharacterLowercased == 'a' ||
+					currentCharacterLowercased == 'e' ||
+					currentCharacterLowercased == 'i' ||
+					currentCharacterLowercased == 'o' ||
+					currentCharacterLowercased == 'u'
+				) {
+				myNewStr.append('-');
+			} else {
+				myNewStr.append(this.str.charAt(i));
+				
+			}
+		}
+		
+		return myNewStr.toString();
+	}
 
 	// public String getNoDigitWordString() { 
 
