@@ -24,7 +24,13 @@ public class StringProcessor {
 	}
 
 	public int uppercaseCount() { 
-
+		int count = 0;
+		for (int i = 0; i < this.str.length(); i++) {
+			if(Character.isUpperCase(str.charAt(i))) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 	// public int digitCount() { 
