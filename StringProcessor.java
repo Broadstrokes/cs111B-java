@@ -41,7 +41,7 @@ public class StringProcessor {
 	public int digitCount() { 
 		int count = 0;
 		for (int i = 0; i < this.str.length(); i++) {
-			if(Character.isDigit(str.charAt(i))) {
+			if (Character.isDigit(str.charAt(i))) {
 				count++;
 			}
 		}
@@ -104,7 +104,30 @@ public class StringProcessor {
 		return myNewStr.toString();
 	}
 
-	// public String getNoDigitWordString() { 
+	public String getNoDigitWordString() {
+		String[] digitWordsArray = this.digitWords.split(" ");
+		String[] tokens = this.str.split(" "); // convert the string into array
+		int startingIndexOfWordDigitIfFoundInString;
+		String currentDigit;
 
-	// }
+		// Loop over the tokenized user input string
+		for (int i = 0; i < tokens.length; i++) {
+			// Loop over the word digits array called digitWordsArray {"zero", "one", ... "nine"}
+			for (int j = 0; j < digitWordsArray.length; j++) {
+				currentDigit = digitWordsArray[j];
+				startingIndexOfWordDigitIfFoundInString = tokens[i].toLowerCase().indexOf(digitWordsArray[j]);
+
+				// This check ensures that a word such as money doesn't turn into m1y
+				if (startingIndexOfWordDigitIfFoundInString == 0) {
+					// Using a StringBuilder replace the substring with correct digit eg: one get converted to "1"
+					StringBuilder temp = new StringBuilder(tokens[i]);
+					temp.replace(0, digitWordsArray[j].length(), digits[j]);
+					// Place the item in the tokens array
+					tokens[i] = temp.toString();
+				}
+			}
+		}
+
+		return String.join(" ", tokens);
+	}
 }
