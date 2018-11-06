@@ -1,5 +1,9 @@
 public class StringProcessor {
 	private String str; 
+	private String[] digitWords = new String[] {
+		"zero", "one", "two", "three", "four", 
+		"five", "six", "seven", "eight", "nine"
+	};
 
 	public StringProcessor() { 
 		str = "";
@@ -33,9 +37,15 @@ public class StringProcessor {
 		return count;
 	}
 
-	// public int digitCount() { 
-
-	// }
+	public int digitCount() { 
+		int count = 0;
+		for (int i = 0; i < this.str.length(); i++) {
+			if(Character.isDigit(str.charAt(i))) {
+				count++;
+			}
+		}
+		return count;
+	}
 
 	// public int digitWordCount() { 
 
