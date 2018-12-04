@@ -95,19 +95,20 @@ public class GridWriter {
 		// The old array will be garbage collected
 		items = temp;
 	}
+
+
+	// returns the number of GridItems stored in the GridWriter
+	public int size() {
+		return this.size;
+	}
+
+	// return the stored GridItems by index
+	public GridItem get(int index) {
+		if (index >= this.size() || index < 0) {
+			throw new IndexOutOfBoundsException("Out of bounds! Input index less than " + this.size() + " and greater than -1.");
+		}
+
+		return this.items[index];
+	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

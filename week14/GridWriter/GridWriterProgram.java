@@ -13,6 +13,12 @@ public class GridWriterProgram {
 		gw.add(new MyRectangle(40, 0, 10, 10));
 		
 		gw.display();
-	}
-	
+
+		try {
+			GridItem j = gw.get(7);
+			System.out.println(j.getArea());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());			
+		}
+	}	
 }
