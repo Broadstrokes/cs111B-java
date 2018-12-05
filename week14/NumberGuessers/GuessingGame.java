@@ -14,8 +14,23 @@ public class GuessingGame
 			do {
 				response = promptUserAndGetResponse(g.getCurrentGuess());
 				
-				if (response == 'h') g.higher();
-				if (response == 'l') g.lower();
+				if (response == 'h') {
+					try {
+						g.higher();
+					} catch (IllegalStateException e) {
+						System.out.println(e.getMessage());
+						break;
+					}
+				}
+
+				if (response == 'l') {
+					try {
+						g.lower();
+					} catch (IllegalStateException e) {
+						System.out.println(e.getMessage());
+						break;
+					}
+				}
 				
 			} while (response != 'c');
 			

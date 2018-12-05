@@ -13,13 +13,16 @@ public class RandomNumberGuesser extends NumberGuesser {
 		generator = new Random();
 	}
 	
-	public int getCurrentGuess() {
-		
+	public int getCurrentGuess() {		
+		if (high < low || low > high) {
+			throw new IllegalStateException("Your guess was not inside the given guessing range");
+		}
+
 		if (randomValueNeedsUpdating) {
 			randomValue = low + (generator.nextInt((high - low) + 1));
 			randomValueNeedsUpdating = false;
 		}
-		
+
 		return randomValue;
 	}
 	
@@ -39,3 +42,5 @@ public class RandomNumberGuesser extends NumberGuesser {
 	}
 	
 }
+
+

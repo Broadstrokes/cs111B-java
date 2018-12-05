@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class RandomNumberGuesserProgram {
 	public static void main(String[] args) {
 		
-		RandomNumberGuesser game1 = new RandomNumberGuesser(1, 10);
+		RandomNumberGuesser game1 = new RandomNumberGuesser(1, 100);
 		
 		do {
 			playOneGame(game1);
@@ -22,12 +22,31 @@ public class RandomNumberGuesserProgram {
 		promptUserToChooseNumber();
 		
 		do {
-			guess = gameInstance.getCurrentGuess();
+			try {
+				guess = gameInstance.getCurrentGuess();
+			} catch (IllegalStateException e) {
+				System.out.println(e.getMessage());
+				break;
+			}
+
 			userResponse = getUserResponseToGuess(guess);
+
 			if (userResponse == 'h') {
-				gameInstance.higher();
-			} else if (userResponse == 'l') {
-				gameInstance.lower();
+				try {
+					gameInstance.higher();
+				} catch (IllegalStateException e) {
+					System.out.println(e.getMessage());
+					break;
+				}
+			}
+
+			if (userResponse == 'l') {
+				try {
+					gameInstance.lower();
+				} catch (IllegalStateException e) {
+					System.out.println(e.getMessage());
+					break;
+				}
 			}
 		} 
 		while (userResponse != 'c');
