@@ -13,7 +13,7 @@ public class BlinkerCell extends AbstractCell {
 	}
 	
 	public boolean willBeAliveInNextGeneration() {
-		return (getIsAlive() ? false : true);
+		return !getIsAlive();
 	}
 	
 	public char displayCharacter() {
