@@ -4,7 +4,7 @@ public class BlinkerCell extends AbstractCell {
 		super(r, c, w);
 	}
 	
-	public  AbstractCell cellForNextGeneration() {
+	public AbstractCell cellForNextGeneration() {
 		BlinkerCell next = new BlinkerCell(getRow(), getColumn(), world);
 		
 		next.setIsAlive(willBeAliveInNextGeneration());

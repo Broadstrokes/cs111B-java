@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ConwayMain {
 	
@@ -22,6 +23,26 @@ public class ConwayMain {
 		// Add an always-alive cells
 		AbstractCell n = new NeverAliveCell(17, 17, world);
 		world.replaceCell(n);
+
+		// Add an Blinker cells
+		BlinkerCell b1 = new BlinkerCell(8, 12, world);
+		world.replaceCell(b1);
+
+		BlinkerCell b2 = new BlinkerCell(17, 3, world);
+		b2.setIsAlive(true);
+		world.replaceCell(b2);
+
+
+
+		// Add an Custom cells
+		for (int i = 0; i < 8; i++) {
+			int randomRow = ThreadLocalRandom.current().nextInt(2, 18);
+			int randomCol = ThreadLocalRandom.current().nextInt(2, 18);
+			CustomCell c1 = new CustomCell(randomRow, randomCol, world);
+			c1.setIsAlive(true);
+			world.replaceCell(c1);
+		}
+
 			
 		// Go!	
 		do {
