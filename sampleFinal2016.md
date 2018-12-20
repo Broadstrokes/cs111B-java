@@ -82,77 +82,72 @@ void setValue(int index, int value)
 int getTotal()  // Returns the total of the five values
 
 
-public class DiceHolder {
-	
-	int[] diceValue = new int[5];
+  public static class DiceHolder {
+    int[] diceValue = new int[5];
+    // Constructor
+    DiceHolder(int value1, int value2, int value3, int value4, int value5) {
+      diceValue[0] = value1;
+      diceValue[1] = value2;
+      diceValue[2] = value3;
+      diceValue[3] = value4;
+      diceValue[4] = value5;
+    }
+    
+    public void setValue(int index, int value) {
+      diceValue[index] = value;
+    }
+    public int getValue(int index) {
+      return diceValue[index];
+    }
 
-
-	// Constructor
-	DiceHolderDiceHolder(int value1, int value2, int, value3, int value 4, int value 5) {
-		diceValue[0] = value1;
-		diceValue[1] = value2;
-		diceValue[2] = value3;
-		diceValue[3] = value4;
-		diceValue[4] = value5;
-	}
-	
-	
-	public void setValue(int index, int value) {
-		diceValue[index] = value;
-	}
-	public int getValue(int index) {
-		return diceValue[index];
-	}
-
-	// Returns the total of the five values
-	public int getTotal() {
-		int sum = 0;
-		for(int i = 0; i < diceValue.length; i++) {
-			sum += diceValue[i];
-		}
-		return sum;
-	}
-
-}
+    // Returns the total of the five values
+    public int getTotal() {
+      int sum = 0;
+      for(int i = 0; i < diceValue.length; i++) {
+        sum += diceValue[i];
+      }
+      return sum;
+    }
+  }
 
 ## 7 
 Write a subclass of DiceHolder that adds one constructor, and one method. Users of AdvancedDiceHolder should have access to all methods and constructors in DiceHolder
 
 
-public class AdvancedDiceHolder extends DiceHolder {
+  public static class AdvancedDiceHolder extends DiceHolder {
 
-	public AdvancedDiceHolder(int[] values) {
-		super(values[0], values[1], values[2], values[3], values[4]);
-	}
+    public AdvancedDiceHolder(int[] values) {
+      super(values[0], values[1], values[2], values[3], values[4]);
+    }
 
-	public int[] getMostOccuringValueArray() {
+    public int[] getMostOccuringValueArray() {
 
-		int maxOccurancesSoFar;
-		int valueEncounteredMost;
+      int maxOccurancesSoFar = 0;
+      int valueEncounteredMost = 0;
 
-		
-		for (int i = 0; i < 5; i++) {
-			int currentValue = getValue[i];
-			int countCurrentVal = 0;
-			for (int j = 0; j < 5; j++) {
-				if (currentValue == getValue[j]) { countCurrentVal += 1; }
+      
+      for (int i = 0; i < 5; i++) {
+        int currentValue = getValue(i);
+        int countCurrentVal = 0;
+        for (int j = 0; j < 5; j++) {
+          if (currentValue == getValue(j)) { countCurrentVal += 1; }
 
-			}
+        }
 
-			if (countCurrentVal > maxOccurancesSoFar) { 
-				maxOccurancesSoFar = countCurrentVal;
-				valueEncounteredMost = currentValue;
-			}
-		}
+        if (countCurrentVal > maxOccurancesSoFar) { 
+          maxOccurancesSoFar = countCurrentVal;
+          valueEncounteredMost = currentValue;
+        }
+      }
 
-		int[] arrayToReturn = int[maxOccurancesSoFar];
-		for(int k = 0; k < maxOccurancesSoFar; k++) {
-			arrayToReturn[k] = valueEncounteredMost;
-		}
+      int[] arrayToReturn = new int [maxOccurancesSoFar];
+      for(int k = 0; k < maxOccurancesSoFar; k++) {
+        arrayToReturn[k] = valueEncounteredMost;
+      }
 
-		return arrayToReturn;
-	}
-}
+      return arrayToReturn;
+    }
+  }
 
 
 ## 8 
@@ -164,33 +159,34 @@ bool isStraight()  // returns true if the values form a straight, in no particul
 bool hasPair()  // returns true if the there are any duplicate values.  
 Bool isNotAll1s() // Returns true if there are any values greater than one.
 
-public class SuperAdvancedDiceHolder extends AdvancedDiceHolder {
-	SuperAdvancedDiceHolder(int[] values) {
-		super(int[] values);
-	}
+  public static class SuperAdvancedDiceHolder extends AdvancedDiceHolder {
+    SuperAdvancedDiceHolder(int[] values) {
+      super(values);
+    }
 
-	public bool isStraight() {
-		for (int i = 0; i < 4; i++) {
-				if (getValue[i] + 1 != getValue[i+1]) { return false; }
-		}
+    public boolean isStraight() {
 
-		return true;
-	}
-	public bool ihasPair() {
-		int[] duplicatesArray = getMostOccuringValueArray();
-		if (duplicatesArray.length > 1) return true;
-		return false
-	}
-	
-	public bool isNotAll1s() {
-		for (int i = 0; i < 4; i++) {
-				if (getValue[i] > 1) { return true; }
-		}
+      for (int i = 0; i < 4; i++) {
+        if (getValue(i) + 1 != getValue(i + 1)) { return false; }
+      }
 
-		return false;
-	}
+      return true;
+    }
+    public boolean hasPair() {
+      int[] duplicatesArray = getMostOccuringValueArray();
+      if (duplicatesArray.length > 1) return true;
+      return false;
+    }
+    
+    public boolean isNotAll1s() {
+      for (int i = 0; i < 4; i++) {
+          if (getValue(i) > 1) { return true; }
+      }
 
-}
+      return false;
+    }
+
+  }
 
 
 
