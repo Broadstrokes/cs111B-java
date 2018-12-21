@@ -3,9 +3,11 @@ import java.util.ArrayList;
 public class Ship {
 	private Point origin;
 	private Point end;
-	private boolean isVertical;
-	private int length;
+	private boolean isVertical = false;
+	private int length = 0;
+	private int hitCount = 0;
 	private ArrayList<Point> listOfPoints = new ArrayList<Point>();
+	private ArrayList<Point> pointsHit = new ArrayList<Point>();
 
 	/**
 	 * This constructor accepts the origin or the ship (its lowest, or
@@ -32,6 +34,7 @@ public class Ship {
 	/////////////
 	// GETTERS //
 	/////////////
+
 	public Point getOrigin() { return origin; }
 	public Point getEnd() { return end; }
 	public boolean getIsVertical() { return isVertical; }
@@ -80,19 +83,33 @@ public class Ship {
 	}
 
 	// //- This is a verb in the game. When the user enters a coordinate, this method can be called on each ship. If the ship contains the point, it should remember that it has been hit at that point. It could do this with a second PointCollection, or some other data strategy.
-	// public void shotFiredAtPoint(Point p) {
-	// 	this.containsPoint(p);
-	// }
+	public void shotFiredAtPoint(Point p) {
+		pointsHit.add(p);
+		hitCount++;
+		// this.containsPoint(p);
+	}
+ 
+	/**
+	 * Returns true if shotFiredAtPoint has been called for this point in the ship.
+	 * False if it has not, or if the point is not in the ship.
+	 * @param  p [description]
+	 * @return   [description]
+	 */
+	public boolean isHitAtPoint(Point p) {
+		for (int i = 0; i < pointsHit.size(); i++) {
+			Point currentPoint = pointsHit.get(i);
+			if (currentPoint.equals(p)) return true;
+		}
 
-	// // - returns true if shotFiredAtPoint has been called for this point in the ship. False if it has not, or if the point is not in the ship.
-	// public boolean isHitAtPoint(Point p) {
+		return false;
+	}
 
-	// }
-
-	// //- returns the number of points in the ship that have been hit. When the hitCount is equal to the length of the ship the ship is considered to be sunk.
-	// public int hitCount() {
-
-	// }
+	/**
+	 * Returns the number of points in the ship that have been hit. 
+	 * When the hitCount is equal to the length of the ship the ship is considered to be sunk.
+	 * @return int number of coordinates hit on the ship
+	 */
+	public int hitCount() { return hitCount; }
 
 
 
