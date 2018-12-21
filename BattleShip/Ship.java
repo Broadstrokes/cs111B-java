@@ -7,9 +7,6 @@ public class Ship {
 	private int length;
 	private ArrayList<Point> listOfPoints = new ArrayList<Point>();
 
-		//.
-	
-
 	/**
 	 * This constructor accepts the origin or the ship (its lowest, or
 	 * leftmost point), its length, and its orientation (vertical, 
@@ -42,10 +39,11 @@ public class Ship {
 
 
 
-
-
-
-	// Returns true if a Ship covers a point on the board, false if it does not.
+	/**
+	 * Returns true if a Ship covers a point on the board, false if it does not.
+	 * @param  pointToCheck [description]
+	 * @return              [description]
+	 */
 	public boolean containsPoint(Point pointToCheck) {
 
 		for (int i = 0; i < listOfPoints.size(); i++) {
@@ -56,7 +54,13 @@ public class Ship {
 		return false;
 	}
 
-	// Returns true if the receiving ship shares a point with the argument ship. Collides with it, so to speak.
+	// 
+	/**
+	 * Returns true if the receiving ship shares a point with the argument ship. 
+	 * Collides with it, so to speak.
+	 * @param  s [description]
+	 * @return   [description]
+	 */
 	public boolean collidesWith(Ship s) {
 		Point sOrigin = s.getOrigin();
 		if (s.getIsVertical()) { // check vertically upwards i.e. 'y' axis
