@@ -6,4 +6,27 @@ public class Ship {
 	private boolean isVertical;
 	private int length;
 	private ArrayList<Point> listOfPoints = new ArrayList<Point>();
+
+		//.
+	
+
+	/**
+	 * This constructor accepts the origin or the ship (its lowest, or
+	 * leftmost point), its length, and its orientation (vertical, 
+	 * or horizontal)
+	 * @param  shipOrigin     [description]
+	 * @param  isShipVertical [description]
+	 * @param  shipLength     [description]
+	 * @return                [description]
+	 */
+	public Ship(Point shipOrigin, boolean isShipVertical, int shipLength) {
+		origin = shipOrigin;
+		isVertical = isShipVertical;
+		length = shipLength;
+
+		// System.out.println("Created ship of length: " + length + " | is vertical? " + isVertical + " starts at " + origin.toString() + " ends at " + end.toString());
+	}
+
+
+	 
 }
