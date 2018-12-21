@@ -25,8 +25,12 @@ public class Ship {
 		length = shipLength;
 
 		// System.out.println("Created ship of length: " + length + " | is vertical? " + isVertical + " starts at " + origin.toString() + " ends at " + end.toString());
-	}
+	} 
 
+	// GETTERS
+	public Point getOrigin() { return origin; }
+	public Point getEnd() { return end; }
+	public boolean getIsVertical() { return isVertical; }
+	public int getLength() { return length; }
 
-	 
 }
