@@ -154,6 +154,11 @@ public class Game {
 		test(s2.containsPoint(p11) == true, "Passed", "Failed", (s2.getOrigin().toString() + " & " + s2.getEnd().toString() + " should contain point " + p11.toString())); // t
 		test(s2.containsPoint(p12) == false, "Passed", "Failed", (s2.getOrigin().toString() + " & " + s2.getEnd().toString() + " should not contain point " + p12.toString())); // f
 		test(s2.containsPoint(p4) == false, "Passed", "Failed", (s2.getOrigin().toString() + " & " + s2.getEnd().toString() + " should not contain point " + p4.toString())); // f
+
+		for (int i = 0; i < 20; i++) {
+			println(gameBoard.generateRandomPoint(0, 10).toString());
+		}
+
 	}
 
 

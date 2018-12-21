@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
+
+
 public class Board {
 	
 	static final int ROWS = 10;
@@ -44,6 +48,19 @@ public class Board {
 		return grid[y][x];
 	}
 
+	// HELPERS
+	/**
+	 * Generates a random Point on the board
+	 * @param  lowerBound smallest number on the number line (inclusive)
+	 * @param  upperBound biggest (exclusive)
+	 * @return            Point on the board
+	 */
+	public Point generateRandomPoint(int lowerBound, int upperBound) {
+		int randomRow = ThreadLocalRandom.current().nextInt(lowerBound, upperBound);
+		int randomCol = ThreadLocalRandom.current().nextInt(lowerBound, upperBound);
+		
+		return new Point(randomCol, randomRow, this);
+	}
 // 	// // Replace a single
 // 	// public void replaceCell(AbstractCell cell) {
 // 	// 	grid[cell.getRow()][cell.getColumn()] = cell;
