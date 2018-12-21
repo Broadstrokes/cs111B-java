@@ -24,6 +24,11 @@ public class Ship {
 		isVertical = isShipVertical;
 		length = shipLength;
 
+		setEnd(origin, isVertical, length);
+		addPointsToArray(origin, isVertical, length);
+
+		printAllPointsInListOfPoints();
+
 		// System.out.println("Created ship of length: " + length + " | is vertical? " + isVertical + " starts at " + origin.toString() + " ends at " + end.toString());
 	} 
 
@@ -32,5 +37,38 @@ public class Ship {
 	public Point getEnd() { return end; }
 	public boolean getIsVertical() { return isVertical; }
 	public int getLength() { return length; }
+
+
+
+	// HELPERS
+	
+	private void setEnd(Point origin, boolean isVertical, int length) {
+		if (isVertical) { // add to Y axis
+			end = new Point(origin.getX(), origin.getY() + length);
+		} else { // add to X axis
+			end = new Point(origin.getX() + length, origin.getY());
+		}
+	}
+
+	private void addPointsToArray(Point origin, boolean isVertical, int length) {
+		if (isVertical) { // check vertically upwards i.e. 'y' axis
+			for (int i = 0; i <= length; i++) {
+				Point pointToAdd = new Point(origin.getX(), origin.getY() + i);
+				listOfPoints.add(pointToAdd);
+			}
+		} else {
+			for (int i = 0; i <= length; i++) {
+				Point pointToAdd = new Point(origin.getX() + i, origin.getY());
+				listOfPoints.add(pointToAdd);
+			}
+		}
+	}
+
+	public void printAllPointsInListOfPoints() {
+		for (int i = 0; i < listOfPoints.size(); i++) {
+			System.out.println(listOfPoints.get(i).toString());
+		}
+	}
+
 
 }
