@@ -11,6 +11,7 @@ public class Game {
 
 		testShipMethods();
 
+
 		// // Add some live conway cells, in a horizontal line		
 		// for (int i = 0; i < 8; i++) {
 		// 	ConwayCell c = new ConwayCell(5, 5 + i, world);
@@ -59,16 +60,64 @@ public class Game {
 	public static void testShipMethods() {
 		// Generate a ship
 		
+		Board gameBoard = new Board();
+		
+		gameBoard.display();
+
 		Point p1 = new Point(1,1);
 
 		// horizontal
-		Ship s1 = new Ship(p1, false, 2);  // (1,1), (2,1), (3,1)
+		Ship s1 = new Ship(p1, false, 2, gameBoard);  // (1,1), (2,1), (3,1)
 
 
 		Point p2 = new Point(4,1);
 		// vertical
-		Ship s2 = new Ship(p2, true, 2); // (4,1), (4,2), (4,3)
+		Ship s2 = new Ship(p2, true, 2, gameBoard); // (4,1), (4,2), (4,3)
 
+
+		Point p3 = new Point(4,2);
+		Point p4 = new Point(4,5);
+		
+
+		Point p5 = new Point(0,0);
+		Point p6 = new Point(1,1);
+		Point p7 = new Point(2,1);
+		Point p8 = new Point(3,1);
+		Point p9 = new Point(3,2);
+
+
+		Point p10 = new Point(4,2);
+		Point p11 = new Point(4,3);
+		Point p12 = new Point(4,4);
+		Point p13 = new Point(3,2);
+		Point p14 = new Point(8,8);
+
+
+
+		s2.shotFiredAtPoint(p2); // fire
+		test(s2.isHitAtPoint(p2) == true, "Passed", "Failed", (p2.toString() + " should be hit ")); // t
+		test(gameBoard.getPoint(p2.getX(), p2.getY()).getIsShot() == true, "Passed", "Failed", (p2.toString() + " point on board should be hit ")); // t
+		test(gameBoard.getPoint(p2.getX(), p2.getY()).getIsShot() == true, "Passed", "Failed", (p2.toString() + " point on board should be hit ")); // t
+		test(gameBoard.getPoint(p2.getX(), p2.getY()).displayCharacter() == 'X', "Passed", "Failed", (p2.toString() + " hit point on board should display 'X' ")); // t
+
+		test(s2.isHitAtPoint(p1) == false, "Passed", "Failed", (p1.toString() + " should not be hit ")); // t
+		test(gameBoard.getPoint(p1.getX(), p1.getY()).getIsShot() == false, "Passed", "Failed", (p1.toString() + " point on board should not be hit ")); // t
+		test(gameBoard.getPoint(p1.getX(), p1.getY()).displayCharacter() == '~', "Passed", "Failed", (p1.toString() + " hidden point on board should display '~' ")); // t
+
+		s2.shotFiredAtPoint(p14); // fire
+		test(s2.isHitAtPoint(p14) == false, "Passed", "Failed", (p14.toString() + " should not be hit ")); // t
+		test(gameBoard.getPoint(p14.getX(), p14.getY()).getIsShot() == false, "Passed", "Failed", (p14.toString() + " point on board should not be hit ")); // t
+		test(gameBoard.getPoint(p14.getX(), p14.getY()).displayCharacter() == '.', "Passed", "Failed", (p14.toString() + " missed point on board should display '.' ")); // t
+
+
+		s2.shotFiredAtPoint(p10);
+		s2.shotFiredAtPoint(p11);
+
+		s1.shotFiredAtPoint(p1);
+		s1.shotFiredAtPoint(p7);
+		s1.shotFiredAtPoint(p8);
+
+		gameBoard.display();
 
 		// Board board = new Board();
 		// board.display();
@@ -89,21 +138,7 @@ public class Game {
 		
 		// Test if containsPoint function works properly
 
-		Point p3 = new Point(4,2);
-		Point p4 = new Point(4,5);
-		
 
-		Point p5 = new Point(0,0);
-		Point p6 = new Point(1,1);
-		Point p7 = new Point(2,1);
-		Point p8 = new Point(3,1);
-		Point p9 = new Point(3,2);
-
-
-		Point p10 = new Point(4,2);
-		Point p11 = new Point(4,3);
-		Point p12 = new Point(4,4);
-		Point p13 = new Point(3,2);
 
 
 		test(s1.containsPoint(p5) == false, "Passed", "Failed", (s1.getOrigin().toString() + " & " + s1.getEnd().toString() + " should not contain point " + p2.toString())); // t

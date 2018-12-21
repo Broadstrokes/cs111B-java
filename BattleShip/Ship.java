@@ -4,10 +4,12 @@ public class Ship {
 	private Point origin;
 	private Point end;
 	private boolean isVertical = false;
-	private int length = 0;
-	private int hitCount = 0;
+	private int length;
+	private int hitCount;
+	private boolean shipHasBeenDestroyed = false;
 	private ArrayList<Point> listOfPoints = new ArrayList<Point>();
 	private ArrayList<Point> pointsHit = new ArrayList<Point>();
+	protected Board gameBoard;
 
 	/**
 	 * This constructor accepts the origin or the ship (its lowest, or
@@ -18,10 +20,11 @@ public class Ship {
 	 * @param  shipLength     [description]
 	 * @return                [description]
 	 */
-	public Ship(Point shipOrigin, boolean isShipVertical, int shipLength) {
+	public Ship(Point shipOrigin, boolean isShipVertical, int shipLength, Board b) {
 		origin = shipOrigin;
 		isVertical = isShipVertical;
 		length = shipLength;
+		gameBoard = b;
 
 		setEnd(origin, isVertical, length);
 		addPointsToArray(origin, isVertical, length);
@@ -70,11 +73,13 @@ public class Ship {
 			for (int i = 0; i <= s.getLength(); i++) {
 
 				Point pointToCheck = new Point(sOrigin.getX(), sOrigin.getY() + i);
+				
 				if(this.containsPoint(pointToCheck)) return true;
 			}
 		} else {
 			for (int i = 0; i <= s.getLength(); i++) {
 				Point pointToCheck = new Point(sOrigin.getX() + i, sOrigin.getY());
+
 				if(this.containsPoint(pointToCheck)) return true;
 			}
 		}
@@ -82,11 +87,31 @@ public class Ship {
 		return false;
 	}
 
-	// //- This is a verb in the game. When the user enters a coordinate, this method can be called on each ship. If the ship contains the point, it should remember that it has been hit at that point. It could do this with a second PointCollection, or some other data strategy.
+	//- This is a verb in the game. When the user enters a coordinate, this method can be called on each ship. If the ship contains the point, it should remember that it has been hit at that point. It could do this with a second PointCollection, or some other data strategy.
 	public void shotFiredAtPoint(Point p) {
-		pointsHit.add(p);
-		hitCount++;
-		// this.containsPoint(p);
+		if (this.containsPoint(p)) {
+			if (!p.getIsShot()) {
+				pointsHit.add(p);
+				p.setIsShot();
+				hitCount++;
+				gameBoard.replacePoint(p);
+			}
+
+			if (hitCount == length + 1) {
+				shipHasBeenDestroyed = true;
+
+				for (int i = 0; i < listOfPoints.size(); i++) {
+					System.out.println("<>>>>>>");
+					Point currentPoint = listOfPoints.get(i);
+					currentPoint.setShipLength(length);
+					currentPoint.setShipHasBeenDestroyed();
+					gameBoard.replacePoint(currentPoint);
+				}
+			}
+		} else {
+			p.setIsMissed();
+			gameBoard.replacePoint(p);
+		}
 	}
  
 	/**
@@ -110,7 +135,6 @@ public class Ship {
 	 * @return int number of coordinates hit on the ship
 	 */
 	public int hitCount() { return hitCount; }
-
 
 
 

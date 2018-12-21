@@ -17,19 +17,33 @@ public class Board {
 	// Display the grid
 	public void display() {
 		String cols = "  ";
+		
+		for (int c = 0; c < COLS; c++) {
+			cols += " " + c;
+		}
+		System.out.println(cols);
+
 		for (int r = 0; r < ROWS; r++) {
-			System.out.print(" " + (ROWS - r - 1));
+			System.out.print(" " + (r));
 			for (int c = 0; c < COLS; c++) {
 				System.out.print(" " + grid[r][c].displayCharacter());
-				if(r == 0) { cols += " " + c; }
 			}
 			
 			System.out.println();
 		}
-		System.out.println(cols);
 
 	}
 	
+	// Replace a single point
+	public void replacePoint(Point p) {
+		grid[p.getY()][p.getX()] = p;
+	}	
+	
+	// Return a single point
+	public Point getPoint(int x, int y) {
+		return grid[y][x];
+	}
+
 // 	// // Replace a single
 // 	// public void replaceCell(AbstractCell cell) {
 // 	// 	grid[cell.getRow()][cell.getColumn()] = cell;
