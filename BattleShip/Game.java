@@ -126,12 +126,12 @@ public class Game {
 
 
 		// Test if collidesWith function works properly		
-		// println(s2.collidesWith(s1)); // f
+		test(s2.collidesWith(s1) == false, "Passed", "Failed", "should return false for no collision"); // f
 
 		// vertical
-		// Ship s3 = new Ship(p2, true, 2); // (4,1), (4,2), (4,3)
-		// Ship s4 = new Ship(new Point(4,2), true, 3); // (4,2), (4,3), (4,4), (4, 5)
-		// println(s2.collidesWith(s3)); // t
+		Ship s3 = new Ship(p2, true, 2, gameBoard); // (4,1), (4,2), (4,3)
+		Ship s4 = new Ship(new Point(4,2), true, 3, gameBoard); // (4,2), (4,3), (4,4), (4, 5)
+		test(s2.collidesWith(s3) == true, "Passed", "Failed", "return true for no collision"); // t
 
 
 		
@@ -155,9 +155,30 @@ public class Game {
 		test(s2.containsPoint(p12) == false, "Passed", "Failed", (s2.getOrigin().toString() + " & " + s2.getEnd().toString() + " should not contain point " + p12.toString())); // f
 		test(s2.containsPoint(p4) == false, "Passed", "Failed", (s2.getOrigin().toString() + " & " + s2.getEnd().toString() + " should not contain point " + p4.toString())); // f
 
+
+		// Test random point generation
 		for (int i = 0; i < 20; i++) {
 			println(gameBoard.generateRandomPoint(0, 10).toString());
 		}
+
+		// Test random length generation
+		for (int i = 0; i < 20; i++) {
+			println(gameBoard.generateRandomLength(1, 5));
+		}		
+
+		// Test random length generation
+		for (int i = 0; i < 20; i++) {
+			println(gameBoard.generateRandomShipOrientation());
+		}
+
+		// Test random ship generation
+		for (int i = 0; i < 20; i++) {
+			Ship ship = gameBoard.generateRandomShip(0, 10, gameBoard);
+			ship.printShipCoordinates();
+		}
+
+
+
 
 	}
 

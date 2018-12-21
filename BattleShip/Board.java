@@ -61,6 +61,35 @@ public class Board {
 		
 		return new Point(randomCol, randomRow, this);
 	}
+	
+	public int generateRandomLength(int lowerBound, int upperBound) {
+		return ThreadLocalRandom.current().nextInt(lowerBound, upperBound);
+	}
+
+	public boolean generateRandomShipOrientation() {
+		int i = ThreadLocalRandom.current().nextInt(0, 2);
+		return i > 0 ? true : false;
+	}
+
+
+	public Ship generateRandomShip(int lowerBound, int upperBound, Board gameBoard) {
+		// Generate random starting coordinate
+		Point origin = generateRandomPoint(lowerBound, upperBound);
+		// Generate random ship length
+		int shipLength = generateRandomLength(0, 5);
+		// Generate random orientation - vertical or horizontal
+		boolean isShipVertical = generateRandomShipOrientation();
+		// Generate ship based on above
+		Ship ship = new Ship(origin, isShipVertical, shipLength, gameBoard);
+		
+		// Check if ship collides with other ships
+			// if collided repeat
+			// 
+		return ship;
+	}
+
+
+
 // 	// // Replace a single
 // 	// public void replaceCell(AbstractCell cell) {
 // 	// 	grid[cell.getRow()][cell.getColumn()] = cell;

@@ -29,7 +29,7 @@ public class Ship {
 		setEnd(origin, isVertical, length);
 		addPointsToArray(origin, isVertical, length);
 
-		printAllPointsInListOfPoints();
+		printShipCoordinates();
 
 		// System.out.println("Created ship of length: " + length + " | is vertical? " + isVertical + " starts at " + origin.toString() + " ends at " + end.toString());
 	} 
@@ -164,10 +164,12 @@ public class Ship {
 		}
 	}
 
-	public void printAllPointsInListOfPoints() {
+	public void printShipCoordinates() {
+		String output = "Ship coordinates:";
 		for (int i = 0; i < listOfPoints.size(); i++) {
-			System.out.println(listOfPoints.get(i).toString());
+			output += " " + listOfPoints.get(i).toString();
 		}
+		System.out.println(output);
 	}
 
 
