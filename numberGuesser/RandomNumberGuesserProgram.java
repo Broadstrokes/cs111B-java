@@ -1,32 +1,9 @@
 import java.util.Scanner;
 
-public class GuessingProgram {
+public class RandomNumberGuesserProgram {
 	public static void main(String[] args) {
 		
-		// NumberGuesser game1 = new NumberGuesser(1, 100);
 		RandomNumberGuesser game1 = new RandomNumberGuesser(1, 10);
-
-
-		// NumberGuesser ng = new NumberGuesser(1, 10);
-		// System.out.println(ng.getCurrentGuess());
-		// System.out.println(ng.getCurrentGuess());
-		// System.out.println(ng.getCurrentGuess());
-
-		// System.out.println("<<<<<<<<>>>>>>>>>>>");
-
-		// RandomNumberGuesser rng = new RandomNumberGuesser(1, 10);
-		// System.out.println(rng.getCurrentGuess());
-		// System.out.println(rng.getCurrentGuess());
-		// System.out.println(rng.getCurrentGuess());
-		// System.out.println(rng.getCurrentGuess());
-		// System.out.println(rng.getCurrentGuess());
-		// System.out.println(rng.getCurrentGuess());
-		// System.out.println(rng.getCurrentGuess());
-		// System.out.println(rng.getCurrentGuess());
-		// System.out.println(rng.getCurrentGuess());
-		// System.out.println(rng.getCurrentGuess());
-		// System.out.println(rng.getCurrentGuess());
-		// System.out.println(rng.getCurrentGuess());
 		
 		do {
 			playOneGame(game1);

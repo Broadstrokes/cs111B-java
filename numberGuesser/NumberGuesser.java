@@ -3,10 +3,11 @@
 */
 
 public class NumberGuesser {
-	private int originalUpper;
-	private int originalLower;
-	private int upper;
-	private int lower;
+	protected int originalUpper;
+	protected int originalLower;
+	protected int upper;
+	protected int lower;
+	protected boolean generateRandInt = false;
 
 	/**
 	 * Constructor
@@ -33,6 +34,7 @@ public class NumberGuesser {
 	 */
 	public void higher() {
 		lower = getCurrentGuess() + 1;
+		generateRandInt = true;
 	}
 
 	/**
@@ -40,6 +42,7 @@ public class NumberGuesser {
 	 */
 	public void lower() {
 		upper = getCurrentGuess();
+		generateRandInt = true;
 	}
 
 	/**
@@ -49,4 +52,12 @@ public class NumberGuesser {
 		upper = originalUpper;
 		lower = originalLower;
 	}
+
+	/**
+	 * Reset the field generateRandInt
+	 */
+	public void resetGenerateRandInt() {
+		this.generateRandInt = false;
+	}
+
 }
