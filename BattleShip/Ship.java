@@ -74,13 +74,21 @@ public class Ship {
 
 				Point pointToCheck = new Point(sOrigin.getX(), sOrigin.getY() + i);
 				
-				if(this.containsPoint(pointToCheck)) return true;
+				if(this.containsPoint(pointToCheck)) {
+					System.out.print(pointToCheck.toString() + " colledes w/ ");
+					this.printShipCoordinates();
+					return true;
+				}
 			}
 		} else {
 			for (int i = 0; i <= s.getLength(); i++) {
 				Point pointToCheck = new Point(sOrigin.getX() + i, sOrigin.getY());
 
-				if(this.containsPoint(pointToCheck)) return true;
+				if(this.containsPoint(pointToCheck)) {
+					System.out.print(pointToCheck.toString() + " colledes w/ ");
+					this.printShipCoordinates();
+					return true;
+				}
 			}
 		}
 
